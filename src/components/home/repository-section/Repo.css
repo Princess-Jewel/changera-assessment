@@ -1,0 +1,99 @@
+.list__item__image {
+  width: 20px;
+  height: 20px;
+  margin-right: 7px;
+}
+.list__item__image img {
+  width: 100%;
+  height: 100%;
+}
+nav li {
+  list-style: none;
+}
+.list__item__unordered__list {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: center;
+  padding: 0;
+}
+.list__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-right: 40px;
+}
+.list__item span {
+  margin-left: 7px;
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  background-color: #efefef;
+  padding: 5px;
+  border-radius: 50%;
+  font-size: 12px;
+}
+.repository__list__section {
+  display: flex;
+  flex-direction: column;
+  /* align-items:flex-start; */
+  justify-content: flex-start;
+  /* width:80%; */
+}
+.repo__search {
+  border: 2px solid #d3d3d3;
+  height: 35px;
+  border-radius: 5px;
+  /* margin-top: 40px; */
+  outline: none;
+  padding: 5px 12px;
+  width: 80%;
+}
+.active {
+  border-bottom: 3px #fd9982 solid;
+  padding-bottom: 10px;
+}
+input::placeholder {
+  font-size: 1rem;
+  font-family: "Lato", sans-serif;
+}
+.repo__nav {
+  margin-bottom: 20px;
+  border-bottom: 2px solid #efefef;
+}
+.buttons__section {
+  gap: 10px;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.input__buttons__section {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.buttons__section button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 7px;
+  border: 2px solid #d3d3d3;
+  height: 35px;
+  border-radius: 5px;
+
+  outline: none;
+  padding: 5px 12px;
+  font-size: 1rem;
+  font-family: "Lato", sans-serif;
+}
+.buttons__section__image {
+  width: 15px;
+  height: 15px;
+  /* margin-right: 7px; */
+}
+.buttons__section__image img {
+  width: 100%;
+  height: 100%;
+}

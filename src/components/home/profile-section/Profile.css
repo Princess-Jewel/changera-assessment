@@ -1,0 +1,108 @@
+
+
+.profile__picture {
+  width: 300px;
+  height: 300px;
+  position: relative;
+}
+.profile__picture img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.smiley {
+  position: absolute;
+  background: #fff;
+  bottom: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  font-size: 18px;
+  color: #808080;
+}
+.profile__details__stats,
+.profile__details__location,
+.profile__details__twitter,
+.profile__details__mail {
+  width: 20px;
+  height: 20px;
+}
+.profile__details__stats img,
+.profile__details__location img,
+.profile__details__twitter img,
+.profile__details__mail img {
+  width: 100%;
+  height: 100%;
+}
+.profile__details__stats__section {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  margin: 15px 0px;
+}
+.profile__details__stats__section__span{
+    margin-right: 7px;
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+}
+.profile__details__name {
+  margin: 22px 0 15px; 
+}
+.profile__details__name__text,
+.profile__details__name h3,
+h5 {
+  text-align: left;
+  font-family: "Lato", sans-serif;
+  margin: 2px 0px;
+}
+.profile__details__name h3 {
+  font-size: 1.825rem;
+  font-weight: 700;
+}
+.profile__details__name h5 {
+  font-size: 1.825rem;
+  font-weight: 300;
+}
+.profile__details__button{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px #D3D3D3 solid;
+    font-size: 1rem;
+    font-family: "Lato", sans-serif;
+}
+.profile__details__name__text{
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin: 13px 0px;
+}
+.profile__details{
+    border-bottom: 2px #D3D3D3 solid;
+    padding-bottom: 20px;
+}
+.achievements{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.achievements p{ 
+    margin: 15px 0px;
+    font-size: 1.3rem;
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+ }
+
+.achievements__section{
+    width: 50px;
+    height: 50px;
+}
+.achievements__section img{
+    width: 100%;
+    height: 100%;
+}
+p {
+  margin: 0;
+}
