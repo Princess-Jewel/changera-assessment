@@ -5,15 +5,15 @@
   width: 90%;
   margin: auto;
   /* align-items: center; */
-  padding: 5rem;
+  /* padding: 5rem; */
 }
 
 
-/* .input__buttons__section{
-  width: 80%;
-}  */
-
-/* .buttons__section{
-    display: flex;
+@media (max-width:767px) {
+  .general__container {
+    display: grid;
+    grid-template-columns:1fr;
+    width: 90%;
+    /* padding: 2rem; */
+  }
 }
-*/

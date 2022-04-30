@@ -47,7 +47,7 @@ nav li {
   /* margin-top: 40px; */
   outline: none;
   padding: 5px 12px;
-  width: 80%;
+  width: 100%;
 }
 .active {
   border-bottom: 3px #fd9982 solid;
@@ -73,6 +73,9 @@ input::placeholder {
   justify-content: space-between;
   gap: 10px;
 }
+.input__buttons__section form{
+  width: 100%;
+}
 .buttons__section button {
   display: flex;
   justify-content: center;
@@ -96,4 +99,30 @@ input::placeholder {
 .buttons__section__image img {
   width: 100%;
   height: 100%;
+}
+
+@media (max-width:767px) {
+  .input__buttons__section {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width:350px;
+  }
+  .input__buttons__section form{
+    width: 90%;
+  }
+  .repository__list__section {
+    width:90%;
+  }
+  .repo__nav {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    width: 350px;
+  }
+  .list__item {
+    margin-right: 20px;
+  }
+  .repo__home{
+    width: 350px;
+  }
 }

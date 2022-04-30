@@ -10,6 +10,20 @@
   height: 100%;
   border-radius: 50%;
 }
+.loading__text{
+ color:green;
+ text-align: center;
+ font-size: 1.5rem;
+ font-family: "Lato", sans-serif;
+ font-weight: 700;
+}
+.error__text{
+ color:red;
+ text-align: center;
+ font-size: 1.5rem;
+ font-family: "Lato", sans-serif;
+ font-weight: 700;
+}
 .smiley {
   position: absolute;
   background: #fff;
@@ -105,4 +119,11 @@ h5 {
 }
 p {
   margin: 0;
+}
+
+
+@media (max-width:767px) {
+.profile__home{
+  width: 350px;
+}
 }

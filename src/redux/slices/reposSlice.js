@@ -1,3 +1,4 @@
+
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
@@ -6,17 +7,35 @@ const config = {
     Authorization: `Token ${process.env.REACT_APP_GITHUB_TOKEN}`,
   },
 };
+const username = "Princess-Jewel";
 export const fetchReposAction = createAsyncThunk(
   "repos/list",
   async (user, { rejectWithValue, getState, dispatch }) => {
     try {
       const { data } = await axios.get(
-        `https://api.github.com/user`,
+        `https://api.github.com/users/${username}/repos?per_page=20`,
         config
       );
-      // console.log(data);
+
       return data;
-      
+    } catch (error) {
+      if (!error?.response) {
+        throw error;
+       
+      }
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
+
+
+export const fetchProfileAction = createAsyncThunk(
+  "profile/list",
+  async (user, { rejectWithValue, getState, dispatch }) => {
+    try {
+      const { data } = await axios.get(`https://api.github.com/user`, config);
+
+      return data;
     } catch (error) {
       if (!error?.response) {
         throw error;
@@ -25,7 +44,6 @@ export const fetchReposAction = createAsyncThunk(
     }
   }
 );
-
 
 const reposSlices = createSlice({
   name: "repos",
@@ -44,7 +62,24 @@ const reposSlices = createSlice({
       state.error = action.payload;
       state.reposList = undefined;
     });
-   
+
+    
+    //Profile
+    builder.addCase(fetchProfileAction.pending, (state, action) => {
+      state.loading = true;
+      state.profile = undefined;
+    });
+    builder.addCase(fetchProfileAction.fulfilled, (state, action) => {
+      state.profile = action?.payload;
+      state.loading = false;
+      state.error = undefined;
+    });
+    builder.addCase(fetchProfileAction.rejected, (state, action) => {
+      state.loading = false;
+
+      state.profile = undefined;
+      state.error = action.payload;
+    });
   },
 });
 
