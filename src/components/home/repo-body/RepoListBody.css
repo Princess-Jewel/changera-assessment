@@ -82,6 +82,7 @@
 @media (max-width:767px) {
   .repo__more__info {
     gap: 5px;
+    font-size:0.8rem;
   }
   .updated{
     white-space: nowrap;
@@ -93,5 +94,11 @@
     margin-bottom: 5px;
     flex-direction: column;
     gap:10px;
+  }
+  .repo__list__body__info p{
+    font-size:0.75rem;
+  }
+  .repo__list__body__repo__head__reponame {
+    font-size: 1rem;
   }
 }

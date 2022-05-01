@@ -7,60 +7,62 @@ import "./RepoListBody.css";
 // import RepoListBody from "./RepoListBody";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { fetchReposAction } from "../../../redux/slices/reposSlice";
+import { fetchReposAction, handleSearchResultsRed, config, setDefaultList } from "../../../redux/slices/reposSlice";
 import Moment from "react-moment";
 import caretDown from "../../../images/caret-down-solid.svg";
+import axios from "axios";
 
 const RepoBody = () => {
-  const [user, setUser] = useState("");
 
-  const repos = useSelector(state => state?.repos);
-  let { loading, reposList, error } = repos;
-  // console.log(reposList);
+  const [user, setUser] = useState("Princess-Jewel");
+
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchReposAction(user));
   }, [user, dispatch]);
 
+  let repos = useSelector(state => state?.repos);
+  console.log('repo', repos)
+  let { loading, reposList, error } = repos;
+
   const [searchKey, setSearchKey] = useState("");
-  const [searchedRepo, setSearchedRepo] = useState(reposList);
+  
 
-  // Search for repository by name
-  const handleSearchResults = () => {
-    const filteredRepos = reposList.filter(repo =>
-      repo.name.toLowerCase().includes(searchKey.toLowerCase().trim())
-    );
-    setSearchedRepo(filteredRepos);
-    // reposList = searchedRepo
-    console.log(filteredRepos);
-  };
 
-  // Search submit
-  const handleSearchBar = e => {
-    e.preventDefault();
-    handleSearchResults();
-  };
+
+
 
   // Clear search and show all repositories
-  const handleClearSearch = () => {
-    setSearchedRepo(reposList);
-    setSearchKey("");
+  const handleClearSearch = async (e) => {
+    e.preventDefault();
+      setSearchKey("");
+      const { data } = await axios.get(
+        `https://api.github.com/users/${user}/repos?per_page=20`,
+        config
+      );
+      dispatch(setDefaultList(data));
+      return;
+    
   };
 
   return (
     <div>
       <div className="input__buttons__section">
-        <form onSubmit={handleSearchBar}>
+        <div className="input__search__buttons">
+        <form className="search__form">
           <input
             type="text"
             placeholder="Find a repository"
             className="repo__search"
             value={searchKey}
             onChange={e => setSearchKey(e.target.value)}
-            onSubmit={handleSearchBar}
+              // Search for repository by name
+            onKeyUp={e => dispatch(handleSearchResultsRed({reposList, 'searchKey': e.target.value}))}
           />
-          {searchKey && <span onClick={handleClearSearch}>X</span>}
+          {searchKey && <span onClick={e => handleClearSearch(e)}>X</span>}
         </form>
+        </div>
         <div className="buttons__section">
           <button>
             Type
@@ -83,13 +85,13 @@ const RepoBody = () => {
         </div>
       </div>
     <div className="repo__home">  {loading ? (
-        <h1 className="loading__text">Loading</h1>
+        <h1 className="loading__text">Loading...</h1>
       ) : error ? (
         <h1 className="error__text">{error?.message}</h1>
       ) : (
         <>
-          {searchedRepo?.name !== "Error" &&
-            searchedRepo?.map(repo => (
+          {reposList &&
+            reposList?.map(repo => (
               <div key={repo?.id}>
                 <div className="repo__list__body">
                   <div className="repo__list__body__repo">

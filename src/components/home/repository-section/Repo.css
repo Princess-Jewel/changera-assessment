@@ -41,7 +41,7 @@ nav li {
   /* width:80%; */
 }
 .repo__search {
-  border: 2px solid #d3d3d3;
+  border: none;
   height: 35px;
   border-radius: 5px;
   /* margin-top: 40px; */
@@ -73,7 +73,7 @@ input::placeholder {
   justify-content: space-between;
   gap: 10px;
 }
-.input__buttons__section form{
+.input__buttons__section form {
   width: 100%;
 }
 .buttons__section button {
@@ -91,6 +91,19 @@ input::placeholder {
   font-size: 1rem;
   font-family: "Lato", sans-serif;
 }
+
+.input__search__buttons {
+  border: 2px solid #d3d3d3;
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+.search__form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .buttons__section__image {
   width: 15px;
   height: 15px;
@@ -101,28 +114,32 @@ input::placeholder {
   height: 100%;
 }
 
-@media (max-width:767px) {
+@media (max-width: 767px) {
   .input__buttons__section {
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 30px;
-    width:350px;
+    width: 350px;
   }
-  .input__buttons__section form{
+  .buttons__section {
+    justify-content: flex-start;
+  }
+  .input__buttons__section form {
     width: 90%;
   }
   .repository__list__section {
-    width:90%;
+    width: 90%;
   }
   .repo__nav {
     overflow-x: auto;
     flex-wrap: nowrap;
     width: 350px;
+    padding: 5px 0px 20px;
   }
   .list__item {
     margin-right: 20px;
   }
-  .repo__home{
+  .repo__home {
     width: 350px;
   }
 }

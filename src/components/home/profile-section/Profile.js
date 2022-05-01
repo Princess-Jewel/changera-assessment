@@ -10,7 +10,11 @@ import { useEffect, useState } from "react";
 import { fetchProfileAction } from "../../../redux/slices/reposSlice";
 
 const Profile = () => {
-  const [user, setUser] = useState("");
+  // useEffect(() => {
+  //   setUser({user: "Princess-Jewel"})
+  //  }, [])
+  
+  const [user, setUser] = useState("Princess-Jewel");
   const repos = useSelector(state => state?.repos);
   const { loading, profile, error } = repos;
   // console.log(profile);
@@ -23,7 +27,7 @@ const Profile = () => {
   return (
     <div className="profile__home">
       {loading ? (
-        <h1 className="loading__text">Loading</h1>
+        <h1 className="loading__text">Loading...</h1>
       ) : error ? (
         <h1 className="error__text">{error?.message}</h1>
       ) : (
@@ -31,9 +35,9 @@ const Profile = () => {
           <div className="profile__picture__section">
             <div className="profile__picture">
               <img src={profile?.avatar_url} alt="" />
-              <div className="smiley">
+              {/* <div className="smiley">
                 <i className="far fa-smile "></i>
-              </div>
+              </div> */}
             </div>
           </div>
 

@@ -126,4 +126,15 @@ p {
 .profile__home{
   width: 350px;
 }
+.profile__picture {
+  width: 200px;
+  height: 200px;
+}
+.profile__details__name h3,
+.profile__details__name h5  {
+  font-size: 1.3rem;
+}
+.profile__details__name__text{
+  font-size: 1rem;
+}
 }

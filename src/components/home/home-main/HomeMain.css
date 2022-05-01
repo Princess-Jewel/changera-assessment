@@ -3,9 +3,7 @@
   grid-template-columns: 400px 1fr;
   grid-gap: 5rem;
   width: 90%;
-  margin: auto;
-  /* align-items: center; */
-  /* padding: 5rem; */
+  margin: 5rem auto;
 }
 
 
@@ -14,6 +12,6 @@
     display: grid;
     grid-template-columns:1fr;
     width: 90%;
-    /* padding: 2rem; */
+    margin: 2rem auto;
   }
 }

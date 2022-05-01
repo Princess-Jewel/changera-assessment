@@ -2,21 +2,22 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const config = {
+export const config = {
   headers: {
     Authorization: `Token ${process.env.REACT_APP_GITHUB_TOKEN}`,
   },
 };
-const username = "Princess-Jewel";
+
 export const fetchReposAction = createAsyncThunk(
   "repos/list",
   async (user, { rejectWithValue, getState, dispatch }) => {
+    
     try {
       const { data } = await axios.get(
-        `https://api.github.com/users/${username}/repos?per_page=20`,
+        `https://api.github.com/users/${user}/repos?per_page=20`,
         config
       );
-
+      console.log(data)
       return data;
     } catch (error) {
       if (!error?.response) {
@@ -25,6 +26,23 @@ export const fetchReposAction = createAsyncThunk(
       }
       return rejectWithValue(error.response.data);
     }
+  }
+);
+
+export const setDefaultList = createAsyncThunk(
+  "default/list",
+  async (data, { rejectWithValue, getState, dispatch }) => {
+    return data
+  }
+);
+
+export const handleSearchResultsRed = createAsyncThunk(
+  "search/list",
+  async (items, { rejectWithValue, getState, dispatch }) => {
+    const filteredRepos = items.reposList.filter(repo =>
+      repo.name.toLowerCase().includes(items.searchKey.toLowerCase().trim())
+    );
+    return filteredRepos;
   }
 );
 
@@ -49,14 +67,24 @@ const reposSlices = createSlice({
   name: "repos",
   initialState: {},
   extraReducers: builder => {
-    builder.addCase(fetchReposAction.pending, (state, action) => {
-      state.loading = true;
+    builder.addCase(setDefaultList.fulfilled, (state, action) => {
+      state.reposList = action?.payload;
     });
+
+    builder.addCase(handleSearchResultsRed.fulfilled, (state, action) => {
+      state.reposList = action?.payload;
+    });
+
+    
     builder.addCase(fetchReposAction.fulfilled, (state, action) => {
       state.reposList = action?.payload;
       state.loading = false;
       state.error = undefined;
     });
+    builder.addCase(fetchReposAction.pending, (state, action) => {
+      state.loading = true;
+    });
+    
     builder.addCase(fetchReposAction.rejected, (state, action) => {
       state.loading = false;
       state.error = action.payload;
