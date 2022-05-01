@@ -14,6 +14,7 @@ const Profile = () => {
   //   setUser({user: "Princess-Jewel"})
   //  }, [])
   
+  // eslint-disable-next-line no-unused-vars
   const [user, setUser] = useState("Princess-Jewel");
   const repos = useSelector(state => state?.repos);
   const { loading, profile, error } = repos;
