@@ -10,10 +10,7 @@ import { useEffect, useState } from "react";
 import { fetchProfileAction } from "../../../redux/slices/reposSlice";
 
 const Profile = () => {
-  // useEffect(() => {
-  //   setUser({user: "Princess-Jewel"})
-  //  }, [])
-  
+
   // eslint-disable-next-line no-unused-vars
   const [user, setUser] = useState("Princess-Jewel");
   const repos = useSelector(state => state?.repos);
