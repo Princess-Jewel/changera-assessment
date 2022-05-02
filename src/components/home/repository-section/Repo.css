@@ -36,15 +36,13 @@ nav li {
 .repository__list__section {
   display: flex;
   flex-direction: column;
-  /* align-items:flex-start; */
+  margin-bottom: 50px;
   justify-content: flex-start;
-  /* width:80%; */
 }
 .repo__search {
   border: none;
   height: 35px;
   border-radius: 5px;
-  /* margin-top: 40px; */
   outline: none;
   padding: 5px 12px;
   width: 100%;
@@ -107,7 +105,6 @@ input::placeholder {
 .buttons__section__image {
   width: 15px;
   height: 15px;
-  /* margin-right: 7px; */
 }
 .buttons__section__image img {
   width: 100%;
@@ -119,18 +116,18 @@ input::placeholder {
   gap: 1rem;
   align-items: center;
   font-size: 1rem;
-  margin:20px 0; 
+  margin: 20px 0;
   border-top: 1px #d3d3d3 solid;
   border-bottom: 1px #d3d3d3 solid;
   padding: 20px 0;
 }
-.search__info p{
+.search__info p {
   font-family: "Lato", sans-serif;
 }
-.clear__button__section{
+.clear__button__section {
   cursor: pointer;
 }
-.clear__button__section span{
+.clear__button__section span {
   background-color: #d3d3d3;
   padding: 3px 8px;
   border-radius: 10px;
@@ -138,15 +135,14 @@ input::placeholder {
   font-weight: 700;
 }
 
-
 @media (max-width: 767px) {
   .search__info {
     width: 350px;
     font-size: 0.75rem;
-    margin:10px 0; 
+    margin: 10px 0;
     padding: 15px 0;
   }
-  .search__info p{
+  .search__info p {
     max-width: 220px;
   }
   .input__buttons__section {
@@ -163,7 +159,9 @@ input::placeholder {
   }
   .repository__list__section {
     width: 90%;
+    margin-bottom: 0;
   }
+  
   .repo__nav {
     overflow-x: auto;
     flex-wrap: nowrap;
