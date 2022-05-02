@@ -10,7 +10,7 @@ const Footer = () => {
           <img src={githubLogo} alt="" />
         </div>
         <p className="footer__section__left__text">
-          &copy; &nbsp;2020 GitHub, Inc.
+          &copy; &nbsp;2022 GitHub, Inc.
         </p>
       </div>
       <div className="footer__section__right">

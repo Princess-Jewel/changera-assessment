@@ -44,7 +44,7 @@
 }
 .repo__list__body__repo__head__reponame {
   font-size: 1.3rem;
-  font-family: "Lato", sans-serif;
+
   font-weight: bold;
   color: rgba(23, 113, 220, 255);
   margin: -7px 10px 0px 0px;
@@ -55,12 +55,12 @@
   border-radius: 30px;
   text-align: center;
   font-size: 12px;
-  font-family: "Lato", sans-serif;
+
   font-weight: 700;
 }
 .repo__list__body__repo__head__description {
   font-size: 1rem;
-  font-family: "Lato", sans-serif;
+
   color: #000;
   text-align: left;
   margin-bottom: 15px;
