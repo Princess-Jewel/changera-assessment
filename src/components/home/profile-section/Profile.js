@@ -18,13 +18,12 @@ const Profile = () => {
   const [user, setUser] = useState("Princess-Jewel");
   const repos = useSelector(state => state?.repos);
   const { loading, profile, error } = repos;
-  // console.log(profile);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchProfileAction(user));
   }, [user, dispatch]);
-  //
-  // console.log(user);
+
   return (
     <div className="profile__home">
       {loading ? (

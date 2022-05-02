@@ -1,4 +1,3 @@
-
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
@@ -11,18 +10,16 @@ export const config = {
 export const fetchReposAction = createAsyncThunk(
   "repos/list",
   async (user, { rejectWithValue, getState, dispatch }) => {
-    
     try {
       const { data } = await axios.get(
         `https://api.github.com/users/${user}/repos?per_page=20`,
         config
       );
-      console.log(data)
+
       return data;
     } catch (error) {
       if (!error?.response) {
         throw error;
-       
       }
       return rejectWithValue(error.response.data);
     }
@@ -32,7 +29,7 @@ export const fetchReposAction = createAsyncThunk(
 export const setDefaultList = createAsyncThunk(
   "default/list",
   async (data, { rejectWithValue, getState, dispatch }) => {
-    return data
+    return data;
   }
 );
 
@@ -44,15 +41,15 @@ export const handleSearchResultsRed = createAsyncThunk(
     );
     return filteredRepos;
   }
-);
 
+
+);
 
 export const fetchProfileAction = createAsyncThunk(
   "profile/list",
   async (user, { rejectWithValue, getState, dispatch }) => {
     try {
       const { data } = await axios.get(`https://api.github.com/user`, config);
-
       return data;
     } catch (error) {
       if (!error?.response) {
@@ -67,15 +64,17 @@ const reposSlices = createSlice({
   name: "repos",
   initialState: {},
   extraReducers: builder => {
+    // Default List of repositories
     builder.addCase(setDefaultList.fulfilled, (state, action) => {
       state.reposList = action?.payload;
     });
 
+    // Search results
     builder.addCase(handleSearchResultsRed.fulfilled, (state, action) => {
       state.reposList = action?.payload;
     });
 
-    
+    // Repositories List
     builder.addCase(fetchReposAction.fulfilled, (state, action) => {
       state.reposList = action?.payload;
       state.loading = false;
@@ -84,14 +83,13 @@ const reposSlices = createSlice({
     builder.addCase(fetchReposAction.pending, (state, action) => {
       state.loading = true;
     });
-    
+
     builder.addCase(fetchReposAction.rejected, (state, action) => {
       state.loading = false;
       state.error = action.payload;
       state.reposList = undefined;
     });
 
-    
     //Profile
     builder.addCase(fetchProfileAction.pending, (state, action) => {
       state.loading = true;
