@@ -32,18 +32,16 @@ const Profile = () => {
           <div className="profile__picture__section">
             <div className="profile__picture">
               <img src={profile?.avatar_url} alt="" />
-              {/* <div className="smiley">
-                <i className="far fa-smile "></i>
-              </div> */}
             </div>
-          </div>
-
-          <div className="profile__details">
             <div className="profile__details__name">
               <h3>{profile?.name}</h3>
               <h5>{profile?.login}</h5>
             </div>
-            <div><button className="profile__details__button">Follow</button></div>
+          </div>
+
+          <div className="profile__details">
+            
+            <div><button className="profile__details__button">Edit Profile</button></div>
             <p className="profile__details__name__text">{profile?.bio}</p>
             <div className="profile__details__stats__section">
               <div className="profile__details__stats__section">
