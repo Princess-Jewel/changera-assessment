@@ -5,13 +5,17 @@ import App from './App';
 import store from "./redux/store/store";
 import {Provider} from "react-redux";
 import reportWebVitals from './reportWebVitals';
+import { AppProvider } from './custom-hook/Context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <AppProvider>
     <Provider store={store}>
     <App />
     </Provider>
+    </AppProvider>
+  
   </React.StrictMode>
 );
 

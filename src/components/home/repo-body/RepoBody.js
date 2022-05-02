@@ -14,6 +14,7 @@ import Moment from "react-moment";
 import caretDown from "../../../images/caret-down-solid.svg";
 import axios from "axios";
 import EmptyState from "../empty-state/EmptyState";
+import starIcon from "../../../images/star-regular.svg"
 
 const RepoBody = () => {
   // eslint-disable-next-line no-unused-vars
@@ -143,7 +144,7 @@ const RepoBody = () => {
                           </div>
                           <div className="repo__list__body__repo__star">
                             <div className="repo__list__body__repo__star__image">
-                              <img src={starImage} alt="" />
+                              <img src={starIcon} alt="" />
                             </div>
                             <span>{repo?.stargazers_count}</span>
                           </div>

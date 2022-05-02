@@ -3,7 +3,7 @@
   grid-template-columns: 400px 1fr;
   grid-gap: 5rem;
   width: 90%;
-  margin: 5rem auto;
+  margin: 8rem auto 5rem;
   /* position: relative; */
 }
 
@@ -13,6 +13,6 @@
     display: grid;
     grid-template-columns:1fr;
     width: 90%;
-    margin: 2rem auto;
+    margin: 8rem auto 2rem;
   }
 }

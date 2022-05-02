@@ -4,7 +4,7 @@ import book from "../../../images/book-open-solid.svg";
 import save from "../../../images/floppy-disk-solid.svg";
 import task from "../../../images/task.svg";
 import cube from "../../../images/cube-solid.svg";
-import starImage from "../../../images/star-solid.svg";
+import starIcon from "../../../images/star-regular.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { fetchProfileAction } from "../../../redux/slices/reposSlice";
@@ -19,7 +19,7 @@ const RepoNav = () => {
   }, [user, dispatch]);
 
   return (
-    <nav className="repo__nav">
+    <div className="repo__nav">
       <ul className="list__item__unordered__list">
         <li className="list__item">
           <div className="list__item__image">
@@ -50,13 +50,13 @@ const RepoNav = () => {
         </li>
         <li className="list__item">
           <div className="list__item__image">
-            <img src={starImage} alt="cube-icon" />
+            <img src={starIcon} alt="cube-icon" />
           </div>
           Stars
           <span>-</span>
         </li>
       </ul>
-    </nav>
+    </div>
   );
 };
 
